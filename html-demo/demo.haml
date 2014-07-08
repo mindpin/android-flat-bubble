@@ -1,0 +1,141 @@
+!!!
+%html{:lang => :zh}
+  %head
+    %meta{:'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
+    %title 弹出菜单的网页演示
+
+    %link{:rel => 'stylesheet', :href => 'ui.css'}
+
+  %body.sample
+    .params
+      .pa left-top
+      .pa left-bottom
+      .pa right-top
+      .pa right-bottom
+      .pa top-left
+      .pa top-right
+      .pa bottom-left
+      .pa bottom-right
+      %br
+      .pa top
+      .pa left
+      .pa bottom
+      .pa right
+
+    .box
+      .top
+        %a.top-menu{:href => 'javascript:;'}
+
+      .d1
+        %a.t.t1{:href => 'javascript:;'}
+        .p.t1{:style => 'display:none;'}
+          .s arrow: left-top;
+    
+      .d2
+        %a.t.t2{:href => 'javascript:;'}
+        .p.t2{:style => 'display:none;'}
+          .s arrow: right-bottom;
+
+      .d3
+        %a.t.t3{:href => 'javascript:;'}
+        .p.t3{:style => 'display:none;'}
+          .s arrow: top-left;
+
+      .d4
+        %a.t.t4{:href => 'javascript:;'}
+        .p.t4{:style => 'display:none;'}
+          .s arrow: top-left;
+
+      .d5
+        %a.t.t5{:href => 'javascript:;'}
+        .p.t5{:style => 'display:none;'}
+          .s arrow: top-left;
+
+    %script{:type => 'text/javascript', :src => 'jquery-2.1.0.min.js'}
+    :coffee
+      jQuery ->
+
+        jQuery('a.t1').click ->
+          if jQuery(this).hasClass('show')
+            jQuery(this).removeClass('show')
+            jQuery('.p.t1').fadeOut(400)
+          else
+            jQuery(this).addClass('show')
+            jQuery('.p.t1')
+              .show()
+              .css
+                'opacity': 0
+                'margin-left': -40
+              .animate
+                'opacity': 1
+                'margin-left': 0
+              , 400
+
+        jQuery('a.t2').click ->
+
+          if jQuery(this).hasClass('show')
+            jQuery(this).removeClass('show')
+            jQuery('.p.t2').fadeOut(400)
+          else
+            jQuery(this).addClass('show')
+            jQuery('.p.t2')
+              .show()
+              .css
+                'opacity': 0
+                'margin-left': 40
+              .animate
+                'opacity': 1
+                'margin-left': 0
+              , 400
+
+        jQuery('a.t3').click ->
+
+          if jQuery(this).hasClass('show')
+            jQuery(this).removeClass('show')
+            jQuery('.p.t3').fadeOut(400)
+          else
+            jQuery(this).addClass('show')
+            jQuery('.p.t3')
+              .show()
+              .css
+                'opacity': 0
+                'margin-top': -40
+              .animate
+                'opacity': 1
+                'margin-top': 0
+              , 400
+
+        jQuery('a.t4').click ->
+
+          if jQuery(this).hasClass('show')
+            jQuery(this).removeClass('show')
+            jQuery('.p.t4').fadeOut(400)
+          else
+            jQuery(this).addClass('show')
+            jQuery('.p.t4')
+              .show()
+              .css
+                'opacity': 0
+                'margin-top': 40
+              .animate
+                'opacity': 1
+                'margin-top': 0
+              , 400
+
+        jQuery('a.t5').click ->
+
+          if jQuery(this).hasClass('show')
+            jQuery(this).removeClass('show')
+            jQuery('.p.t5').fadeOut(400)
+          else
+            jQuery(this).addClass('show')
+            jQuery('.p.t5')
+              .show()
+              .css
+                'opacity': 0
+                'margin-top': 40
+              .animate
+                'opacity': 1
+                'margin-top': 0
+              , 400
